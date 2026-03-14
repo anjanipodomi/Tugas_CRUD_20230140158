@@ -1,9 +1,10 @@
 package com.example.ktp.controller;
 
-import com.example.ktp.entity.Ktp;
+import com.example.ktp.dto.KtpRequest;
+import com.example.ktp.dto.KtpResponse;
+import com.example.ktp.model.ApiResponse;
 import com.example.ktp.service.KtpService;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -15,33 +16,40 @@ public class KtpController {
         this.ktpService = ktpService;
     }
 
-    // POST /ktp
     @PostMapping
-    public Ktp createKtp(@RequestBody Ktp ktp) {
-        return ktpService.saveKtp(ktp);
+    public ApiResponse<KtpResponse> create(@RequestBody KtpRequest request) {
+
+        return new ApiResponse<>("Data berhasil dibuat",
+                ktpService.create(request));
     }
 
-    // GET /ktp
     @GetMapping
-    public List<Ktp> getAllKtp() {
-        return ktpService.getAllKtp();
+    public ApiResponse<List<KtpResponse>> getAll() {
+
+        return new ApiResponse<>("Data berhasil diambil",
+                ktpService.getAll());
     }
 
-    // GET /ktp/{id}
     @GetMapping("/{id}")
-    public Ktp getKtpById(@PathVariable Integer id) {
-        return ktpService.getKtpById(id);
+    public ApiResponse<KtpResponse> getById(@PathVariable Long id) {
+
+        return new ApiResponse<>("Data ditemukan",
+                ktpService.getById(id));
     }
 
-    // PUT /ktp/{id}
     @PutMapping("/{id}")
-    public Ktp updateKtp(@PathVariable Integer id, @RequestBody Ktp ktp) {
-        return ktpService.updateKtp(id, ktp);
+    public ApiResponse<KtpResponse> update(@PathVariable Long id,
+                                           @RequestBody KtpRequest request) {
+
+        return new ApiResponse<>("Data berhasil diupdate",
+                ktpService.update(id, request));
     }
 
-    // DELETE /ktp/{id}
     @DeleteMapping("/{id}")
-    public void deleteKtp(@PathVariable Integer id) {
-        ktpService.deleteKtp(id);
+    public ApiResponse<String> delete(@PathVariable Long id) {
+
+        ktpService.delete(id);
+
+        return new ApiResponse<>("Data berhasil dihapus", "OK");
     }
 }
