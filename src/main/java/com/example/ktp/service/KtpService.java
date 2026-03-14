@@ -1,16 +1,17 @@
 package com.example.ktp.service;
 
-import com.example.ktp.entity.Ktp;
+import com.example.ktp.dto.KtpRequest;
+import com.example.ktp.dto.KtpResponse;
 import java.util.List;
 
 public interface KtpService {
-    Ktp saveKtp(Ktp ktp);
+    KtpResponse create(KtpRequest request);
 
-    List<Ktp> getAllKtp();
+    List<KtpResponse> getAll();
 
-    Ktp getKtpById(Integer id);
+    KtpResponse getById(Long id);
 
-    Ktp updateKtp(Integer id, Ktp ktp);
+    KtpResponse update(Long id, KtpRequest request);
 
-    void deleteKtp(Integer id);
+    void delete(Long id);
 }
