@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>CRUD Data KTP</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>Manajemen Data KTP</h1>
+
+</header>
+
+
+<section class="container">
+
+    <h2>Form Data KTP</h2>
+
+    <form id="ktpForm">
+
+        <input type="hidden" id="id">
+
+        <label>Nomor KTP</label>
+        <input type="text" id="nomorKtp" required>
+
+        <label>Nama Lengkap</label>
+        <input type="text" id="namaLengkap" required>
+
+        <label>Alamat</label>
+        <input type="text" id="alamat">
+
+        <label>Tanggal Lahir</label>
+        <input type="date" id="tanggalLahir">
+
+        <label>Jenis Kelamin</label>
+        <select id="jenisKelamin">
+            <option value="Laki-laki">Laki-laki</option>
+            <option value="Perempuan">Perempuan</option>
+        </select>
+
+        <button type="submit">Simpan Data</button>
+
+    </form>
+
+</section>
+
+
+<section class="container">
+
+    <h2>Daftar Data KTP</h2>
+
+    <table>
+
+        <thead>
+
+        <tr>
+            <th>ID</th>
+            <th>Nomor KTP</th>
+            <th>Nama</th>
+            <th>Alamat</th>
+            <th>Tanggal Lahir</th>
+            <th>Jenis Kelamin</th>
+            <th>Aksi</th>
+        </tr>
+
+        </thead>
+
+        <tbody id="ktpTable"></tbody>
+
+    </table>
+
+</section>
+
+
+<footer>
+
+    <p>CRUD KTP API | Deployment Project</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
